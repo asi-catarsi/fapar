@@ -16,7 +16,7 @@
                 <node id="node_fapar">
                         <job id="fapar"/>
                         <sources>
-                                <source refid="cas:series">http://catalogo.progetto-catarsi.it/catalogue/search/LANDSAT5/description</source>
+                                <source refid="cas:series">http://catalogo.progetto-catarsi.it/catalogue/search/FAPAR_LANDSAT_INPUT/rdf</source>
                         </sources>
                         <parameters/>
                 </node>
