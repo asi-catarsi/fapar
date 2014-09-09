@@ -40,4 +40,14 @@ function cleanExit ()
 }
 trap cleanExit EXIT
 
+inputsdir=${TMPDIR}/inputs
 
+while read input
+do
+	mkdir -p $inputsDir
+	file=`echo $input | ciop-copy -o $inputsdir`
+	#call the fapar su $file
+	
+	#then
+	rm -rf ${TMPDIR}
+done
