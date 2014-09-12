@@ -1,24 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<application id="CATARSI_fapar">
-        <jobTemplates>
-                <jobTemplate id="fapar">
-                        <streamingExecutable>/application/fapar/run.sh</streamingExecutable>
-                        <defaultParameters>
-                                <parameter id="starttime" title="Start Time" abstract="Start Time to query the Catalogue" scope="runtime" type="opensearch" target="time:start"/>
-                                <parameter id="enddate" title="End time" abstract="End time to query the Catalogue" scope="runtime" type="opensearch" target="time:end"/>
-                                <parameter id="bbox" title="Bounding Box" abstract="Bounding Box to query the Catalogue" scope="runtime" type="opensearch" target="geo:box"/>
-                        </defaultParameters>
-                        <defaultJobconf></defaultJobconf>
-                </jobTemplate>
-        </jobTemplates>
-        <workflow id="wf_fapar" title="Fraction of absorbed photosynthetically active radiation" abstract="FAPAR">
-                <workflowVersion>1.0</workflowVersion>
-                <node id="node_fapar">
-                        <job id="fapar"/>
-                        <sources>
-                                <source refid="cas:series">http://catalogo.progetto-catarsi.it/catalogue/search/FAPAR_LANDSAT_INPUT/rdf</source>
-                        </sources>
-                        <parameters/>
-                </node>
-        </workflow>
+<?xml version="1.0" encoding="us-ascii"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" id="CATARSI_fapar">
+  <jobTemplates>
+    <jobTemplate id="fapar">
+      <streamingExecutable>/application/fapar/run.sh</streamingExecutable>
+      <defaultParameters>
+        <parameter id="starttime" title="Start Time" abstract="Start Time to query the Catalogue" scope="runtime" type="opensearch" target="time:start" />
+        <parameter id="enddate" title="End time" abstract="End time to query the Catalogue" scope="runtime" type="opensearch" target="time:end" />
+        <parameter id="bbox" title="Bounding Box" abstract="Bounding Box to query the Catalogue" scope="runtime" type="opensearch" target="geo:box" />
+      </defaultParameters>
+      <defaultJobconf />
+    </jobTemplate>
+  </jobTemplates>
+  <workflow id="wf_fapar" title="Fraction of absorbed photosynthetically active radiation" abstract="FAPAR">
+    <workflowVersion>1.0</workflowVersion>
+    <node id="node_fapar">
+      <job id="fapar" />
+      <sources>
+        <source id="data" refid="cas:series">http://catalogo.progetto-catarsi.it/catalogue/search/FAPAR_LANDSAT_INPUT/description</source>
+      </sources>
+      <parameters>
+      	<parameter id="starttime">2000-06-20T09:50:58.000Z</parameter>
+      	<parameter id="enddate">2000-06-20T09:50:58.000Z</parameter>
+      	<parameter id="bbox">-180,90,180,-90</parameter>
+      </parameters>
+    </node>
+  </workflow>
 </application>
